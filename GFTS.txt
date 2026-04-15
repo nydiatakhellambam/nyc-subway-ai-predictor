@@ -1,0 +1,19 @@
+STEP 1: Extract and Inspect the Dataset
+
+First, unzip your gtfs_subway.zip.
+
+You should see files like:
+
+stop_times.txt 
+trips.txt
+routes.txt
+stops.txt
+
+import pandas as pd
+
+stop_times = pd.read_csv("stop_times.txt")
+trips = pd.read_csv("trips.txt")
+routes = pd.read_csv("routes.txt")
+
+print(stop_times.head())
+print(stop_times.columns)
