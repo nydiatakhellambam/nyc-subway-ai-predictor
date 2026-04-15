@@ -1,51 +1,114 @@
-# 🚇 NYC Subway AI Predictor
+# 🚇 NYC Subway Delay Prediction using AI
 
-An AI-based system that predicts subway delays using real-time data and machine learning.
-
----
-
-## 📌 Features
-
-- Real-time data collection from MTA API
-- Delay prediction using XGBoost & Random Forest
-- Interactive dashboard using Streamlit
-- Model evaluation with MAE, RMSE, and R²
+An end-to-end machine learning system that predicts subway delays using real-time data.
 
 ---
 
-## 🧠 Models Used
+## 🌟 Project Highlights
 
-- XGBoost Regressor
-- Random Forest Regressor
-
----
-
-## 📊 Performance
-
-- MAE: ~60 seconds  
-- Dataset: ~22 hours of real-time subway data  
+- 📡 Real-time data collection from MTA feeds
+- 🧠 Machine Learning models (XGBoost & Random Forest)
+- 📊 Interactive dashboard using Streamlit
+- ⏱️ ~22 hours of real-time subway data collected
 
 ---
 
-## ⚠️ Challenges
+## 🧠 Problem Statement
 
-- GTFS and real-time data mismatch  
-- Trip ID inconsistencies  
-- Required hybrid dataset approach  
+Subway delay announcements are often vague.
+
+> “Train delayed” — but how long?
+
+This project answers:
+
+👉 *“Given current conditions, how much delay should we expect?”*
 
 ---
 
-## 💡 Solution
+## 🏗️ System Architecture
+Realtime API → Data Collection → Feature Engineering → ML Model → Dashboard
 
-We created a hybrid dataset with:
-- Time-based delay patterns  
-- Delay propagation between stops  
-- Realistic simulation of subway behavior  
+
+---
+
+## 📊 Dataset
+
+- Source: MTA Real-time feeds
+- Duration: ~22 hours
+- Records: Hundreds of thousands
+- Features:
+  - trip_id
+  - stop_id
+  - arrival_time
+  - delay (engineered)
+  - hour
+  - stop_sequence
+  - previous delay
+
+---
+
+## ⚠️ Challenges Faced
+
+- GTFS vs real-time mismatch
+- No direct mapping between schedule and actual arrival
+- Sparse real-world labeled delay data
+
+---
+
+## 💡 Solution Approach
+
+We created a **hybrid dataset**:
+
+- Simulated realistic delay patterns
+- Added time-based variation (rush hours)
+- Introduced delay propagation across stops
+
+---
+
+## 🤖 Models Used
+
+| Model | Purpose |
+|------|--------|
+| XGBoost | High performance boosting |
+| Random Forest | Robust baseline |
+
+---
+
+## 📈 Model Performance
+
+| Metric | Value |
+|------|--------|
+| MAE | ~60 seconds |
+| RMSE | ~69 seconds |
+| R² Score | Low (due to synthetic dataset) |
+
+---
+
+## 📊 Dashboard
+
+### Features:
+- Real-time delay prediction
+- Adjustable inputs (hour, stop, delay)
+- Estimated arrival time
+- Delay visualization
+
+---
+
+## 📷 Dashboard Preview
+
+![Dashboard](dashboard.png)
 
 ---
 
 ## 🚀 How to Run
 
+### Install dependencies
+
 ```bash
 pip install -r requirements.txt
-python train_xgboost.py
+
+Train model
+python train_model.py
+
+Run dashboard
+streamlit run app.py
