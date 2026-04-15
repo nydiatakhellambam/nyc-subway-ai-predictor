@@ -50,8 +50,8 @@ Realtime API → Data Collection → Feature Engineering → ML Model → Dashbo
 ## ⚠️ Challenges Faced
 
 - GTFS vs real-time mismatch
-- No direct mapping between schedule and actual arrival
-- Sparse real-world labeled delay data
+- No direct mapping between the schedule and actual arrival
+- Sparse real-world labelled delay data
 
 ---
 
